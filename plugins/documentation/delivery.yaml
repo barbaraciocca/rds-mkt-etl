@@ -1,0 +1,101 @@
+models:
+  - name: daily_metrics
+    schema: delivery
+    description: Métricas operacionais diárias de funil e performance vs meta, incluindo acumulados MTD.
+    columns:
+      - name: data_referencia
+        data_type: DATE
+        description: Data de referência da agregação (Data do último toque).
+        tests:
+          - not_null
+      - name: account
+        data_type: TEXT
+        description: Conta do lead.
+      - name: icp_score
+        data_type: CHAR(1)
+        description: Perfil do ICP.
+      - name: tipo_lead
+        data_type: VARCHAR(10)
+        description: Tipo de lead/origem, truncado para 10 caracteres para compatibilidade com o schema.
+      - name: pais
+        data_type: TEXT
+        description: País de origem do lead.
+      - name: leads
+        data_type: INTEGER
+        description: Contagem diária de leads gerados/convertidos.
+      - name: emails_unicos
+        data_type: INTEGER
+        description: Contagem diária de e-mails únicos.
+      - name: mqls
+        data_type: INTEGER
+        description: Contagem diária de leads convertidos para MQL.
+      - name: sals
+        data_type: INTEGER
+        description: Contagem diária de leads convertidos para SAL.
+      - name: ultimo_horario_conversao
+        data_type: TIME
+        description: Hora da última conversão registrada no dia.
+      - name: meta_leads_diaria
+        data_type: NUMERIC
+        description: Meta diária de leads (Meta mensal dividida por 30).
+      - name: meta_mql_diaria
+        data_type: NUMERIC
+        description: Meta diária de MQLs.
+      - name: meta_sal_diaria
+        data_type: NUMERIC
+        description: Meta diária de SALs.
+      - name: taxa_lead_mql_pct
+        data_type: NUMERIC
+        description: Taxa de conversão diária de LEAD para MQL.
+      - name: taxa_mql_sal_pct
+        data_type: NUMERIC
+        description: Taxa de conversão diária de MQL para SAL.
+      - name: leads_mtd
+        data_type: INTEGER
+        description: Leads acumulados (Month-to-Date).
+      - name: mqls_mtd
+        data_type: INTEGER
+        description: MQLs acumulados (Month-to-Date).
+      - name: leads_vs_meta_mtd_pct
+        data_type: NUMERIC
+        description: Percentual de leads MTD atingido em relação à meta acumulada MTD.
+
+  - name: top_campaigns_all
+    schema: delivery
+    description: Ranking das top 5 campanhas mais performáticas (leads, mqls, sals) de todos os tipos de lead e ICPs.
+    columns:
+      - name: campaign_last_touch
+        data_type: TEXT
+        description: ID da campanha no último toque do lead.
+      - name: icp_score
+        data_type: CHAR(1)
+        description: Perfil do ICP.
+      - name: leads
+        data_type: INTEGER
+        description: Total de leads gerados pela campanha.
+      - name: mqls
+        data_type: INTEGER
+        description: Total de MQLs gerados pela campanha.
+      - name: sals
+        data_type: INTEGER
+        description: Total de SALs gerados pela campanha.
+      - name: rank_leads
+        data_type: INTEGER
+        description: Posição no ranking baseado na contagem de leads.
+      - name: rank_mqls
+        data_type: INTEGER
+        description: Posição no ranking baseado na contagem de MQLs.
+      - name: rank_sals
+        data_type: INTEGER
+        description: Posição no ranking baseado na contagem de SALs.
+
+  - name: top_campaigns_hr
+    schema: delivery
+    description: Ranking das top 5 campanhas com maior volume de leads do tipo HR.
+    columns:
+      - name: campaign_last_touch
+        data_type: TEXT
+        description: ID da campanha no último toque.
+      - name: leads_hr
+        data_type: INTEGER
+        description: Contagem de leads do tipo HR para a campanha.

@@ -1,0 +1,133 @@
+models:
+  - name: funnel_raw
+    schema: raw
+    description: Tabela raw do funil de marketing. Contém os dados brutos de entrada, todos tipados como TEXT.
+    columns:
+      - name: id
+        data_type: TEXT
+        description: ID único do registro de conversão/lead.
+      - name: email
+        data_type: TEXT
+        description: E-mail do lead.
+      - name: created_month
+        data_type: TEXT
+        description: Mês de criação do lead/registro.
+      - name: created_date
+        data_type: TEXT
+        description: Data e hora de criação do lead/registro.
+      - name: lead_created_month
+        data_type: TEXT
+        description: Mês de criação como Lead.
+      - name: lead_created_date
+        data_type: TEXT
+        description: Data e hora de criação como Lead.
+      - name: mql_created_month
+        data_type: TEXT
+        description: Mês de conversão para MQL.
+      - name: mql_created_date
+        data_type: TEXT
+        description: Data e hora de conversão para MQL.
+      - name: sal_created_month
+        data_type: TEXT
+        description: Mês de conversão para SAL.
+      - name: sal_created_date
+        data_type: TEXT
+        description: Data e hora de conversão para SAL.
+      - name: first_touch_date
+        data_type: TEXT
+        description: Data e hora do primeiro ponto de contato.
+      - name: last_touch_date
+        data_type: TEXT
+        description: Data e hora do último ponto de contato. Base para a agregação diária.
+      - name: account_first_touch
+        data_type: TEXT
+        description: Conta associada ao primeiro toque.
+      - name: account_last_touch
+        data_type: TEXT
+        description: Conta associada ao último toque (Ex: Brasil).
+      - name: channel_first_touch
+        data_type: TEXT
+        description: Canal de Marketing do primeiro toque.
+      - name: channel_last_touch
+        data_type: TEXT
+        description: Canal de Marketing do último toque (Email, etc.).
+      - name: campaign_first_touch
+        data_type: TEXT
+        description: Campanha de Marketing do primeiro toque.
+      - name: campaign_last_touch
+        data_type: TEXT
+        description: Campanha de Marketing do último toque.
+      - name: identifier_first_touch
+        data_type: TEXT
+        description: Identificador da origem no primeiro toque.
+      - name: identifier_last_touch
+        data_type: TEXT
+        description: Identificador da origem no último toque.
+      - name: icp_score
+        data_type: TEXT
+        description: Perfil do Cliente Ideal (A, B, C, D).
+      - name: lead_channel
+        data_type: TEXT
+        description: Canal de captação do lead.
+      - name: lead_type
+        data_type: TEXT
+        description: Tipo de lead (Ex: MQL, HR).
+      - name: country
+        data_type: TEXT
+        description: País de origem do lead.
+      - name: qty_conversions
+        data_type: TEXT
+        description: Quantidade total de conversões do lead.
+      - name: is_new_lead
+        data_type: TEXT
+        description: Flag indicando se é um lead novo (0 ou 1).
+      - name: converted_to_mql
+        data_type: TEXT
+        description: Flag de conversão para MQL (0 ou 1).
+      - name: is_blank_mql
+        data_type: TEXT
+        description: Flag se MQL é vazio.
+      - name: converted_to_sal
+        data_type: TEXT
+        description: Flag de conversão para SAL (0 ou 1).
+      - name: is_a
+        data_type: TEXT
+        description: Flag para Score A (0 ou 1).
+      - name: is_b
+        data_type: TEXT
+        description: Flag para Score B (0 ou 1).
+      - name: is_c
+        data_type: TEXT
+        description: Flag para Score C (0 ou 1).
+      - name: is_d
+        data_type: TEXT
+        description: Flag para Score D (0 ou 1).
+      - name: is_abc
+        data_type: TEXT
+        description: Flag para Score A, B ou C (0 ou 1).
+
+  - name: metas_raw
+    schema: raw
+    description: Tabela raw das metas mensais para o canal Email Marketing.
+    columns:
+      - name: conta
+        data_type: TEXT
+        description: Conta alvo da meta (Ex: Brasil).
+      - name: canal_mkt
+        data_type: TEXT
+        description: Canal de Marketing (Ex: Email).
+      - name: etapa
+        data_type: TEXT
+        description: Etapa do funil alvo (LEAD, MQL, SAL).
+      - name: perfil
+        data_type: TEXT
+        description: Perfil do ICP alvo (A, B, C, D).
+      - name: mes
+        data_type: TEXT
+        description: Mês da meta.
+      - name: meta
+        data_type: TEXT
+        description: Valor da meta.
+      - name: data
+        data_type: TEXT
+        description: Data de referência da meta (Dia 1 do mês).
