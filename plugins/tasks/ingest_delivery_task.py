@@ -6,8 +6,8 @@ def run_sql(sql, **kwargs):
     hook.run(sql)
 
 sql_pivot_metas = f"""
-    DROP TABLE IF EXISTS {CLEAN_SCHEMA}.{PIVOT_TABLE} m;
-    CREATE TABLE {CLEAN_SCHEMA}.{PIVOT_TABLE} m AS
+    DROP TABLE IF EXISTS {CLEAN_SCHEMA}.{PIVOT_TABLE};
+    CREATE TABLE {CLEAN_SCHEMA}.{PIVOT_TABLE} AS
     SELECT
         conta,
         EXTRACT(YEAR FROM data) || '-' || LPAD(mes::TEXT, 2, '0') AS mes_ano,
