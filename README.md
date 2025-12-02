@@ -3,7 +3,7 @@
 This project builds an ETL pipeline for email marketing data using Airflow for orchestration and Postgres as a data warehouse, running in Docker. The pipeline ingests, cleans, validates, and delivers data.
  
 To view the tables, use a database client like DBeaver.
-To add a connection put the configurations below:
+To connect to the database insert the configurations below:
 port: 5433, host: localhost, username and password: postgres, database: datawarehouse.
 
 Three final CSV tables are available in the `results_tables` folder.
