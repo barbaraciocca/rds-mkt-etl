@@ -4,8 +4,11 @@ This project builds an ETL pipeline for email marketing data using Airflow for o
  
 To view the tables, use a database client like DBeaver.
 To connect to the database insert the configurations below:
-port: 5433, host: localhost, username and password: postgres, database: datawarehouse.
-
+ ```port: 5433
+    host: localhost
+    username and password: postgres
+    database: datawarehouse
+```
 Three final CSV tables are available in the `results_tables` folder.
 
 Documentation for each table, separated by layer (raw, clean, delivery), is provided as YAML files in `plugins/documentation`. Note: these YAMLs are for documentation only and are not executed.
